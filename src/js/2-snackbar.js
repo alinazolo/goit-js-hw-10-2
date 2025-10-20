@@ -3,50 +3,48 @@ import iziToast from "izitoast";
 // Додатковий імпорт стилів
 import "izitoast/dist/css/iziToast.min.css";
 
-/// створити проміс після заповнення форми з затримкою 
+
+const btn = document.querySelector('button[type="submit"]');
+const delay = document.querySelector('input[name="delay"]');
+const fulfilled = document.querySelector('#fulfilled');
+const rejected = document.querySelector('#rejected');
 
 
-// const btn = document.querySelector('button[type="submit"]');
-// const delay = document.querySelector('input[name="delay"]');
-// const fulfilled = document.querySelector('#fulfilled');
-// const rejected = document.querySelector('#rejected');
+const form = document.querySelector('.form');
 
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-// const form = document.querySelector('.form');
+const delay = parseInt(event.target.delay.value);
+const state = event.target.state.value;
 
-// form.addEventListener('submit', (event) => {
-//     event.preventDefault();
+newPromise(delay, state)
+    .then(delay => {
+        iziToast.success({
+            title: 'Success',
+            message: `✅ Fulfilled promise in ${delay}ms`,
+        });
+    })
+    .catch(delay => {
+        iziToast.error({
+            title: 'Error',
+            message: `❌ Rejected promise in ${delay}ms`,
+        });
+    });
 
-// const delay = parseInt(event.target.delay.value);
-// const state = event.target.state.value;
-
-// newPromise(delay, state)
-//     .then(delay => {
-//         iziToast.success({
-//             title: 'Success',
-//             message: `✅ Fulfilled promise in ${delay}ms`,
-//         });
-//     })
-//     .catch(delay => {
-//         iziToast.error({
-//             title: 'Error',
-//             message: `❌ Rejected promise in ${delay}ms`,
-//         });
-//     });
-
-// event.target.reset();
-// });
-// function newPromise(delay, state) {
-//     return new Promise((resolve, reject) => {
-// setTimeout(() => {
-//     if (state === 'fulfilled') {
-//         resolve(delay);
-//     } else {
-//         reject(delay);
-//     }
-// }, delay);
-//     });
-// }
+event.target.reset();
+});
+function newPromise(delay, state) {
+    return new Promise((resolve, reject) => {
+setTimeout(() => {
+    if (state === 'fulfilled') {
+        resolve(delay);
+    } else {
+        reject(delay);
+    }
+}, delay);
+    });
+}
 
 
 // const newForm = document.querySelector('.newform');
