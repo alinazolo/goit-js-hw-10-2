@@ -3,6 +3,8 @@ import iziToast from "izitoast";
 // Додатковий імпорт стилів
 import "izitoast/dist/css/iziToast.min.css";
 
+import "./bitcoin.js";
+import "./hero.js";
 
 const btn = document.querySelector('button[type="submit"]');
 const delay = document.querySelector('input[name="delay"]');
@@ -46,6 +48,20 @@ setTimeout(() => {
     });
 }
 
+function fetchPosts(query) {
+    const BASE_URL = "https://newsapi.org/v2/";
+    const END_POINT = '/everything';
+    const params = new URLSearchParams({
+apiKey: "b9dcffcbacb84f259adc726859a50fc5",
+q: query,
+
+    })
+    const url = `${BASE_URL}${END_POINT}?${params}`;
+    return fetch(url).then(res => res.json());
+}
+
+fetchPosts("Tesla");
+
 
 // const newForm = document.querySelector('.newform');
 
@@ -79,6 +95,5 @@ setTimeout(() => {
 //     }, time);
 // });
 // }
-
 
 
