@@ -5,6 +5,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 import "./bitcoin.js";
 import "./hero.js";
+import "./user.js"
 
 const btn = document.querySelector('button[type="submit"]');
 const delay = document.querySelector('input[name="delay"]');

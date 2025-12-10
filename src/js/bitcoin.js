@@ -16,9 +16,9 @@ function fetchPrice(input1) {
     const headers = {
         'x-rapidapi-key': '87997b3a6amsh394cadaffd43860p17ccb0jsnf1582bd421eb',
 		'x-rapidapi-host': 'binance43.p.rapidapi.com'
-    };
+    }
     return fetch(url, { headers }).then(res => res.json());
-}
+};
 
 //Render
 

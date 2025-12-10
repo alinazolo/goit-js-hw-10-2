@@ -30,3 +30,56 @@ main {
 main:has(.back-link) {
   text-align: center;
 }
+
+.block {
+  margin: 50px 0;
+  padding: 10px;
+  max-width: 100vw;
+  width: 100vw;
+  overflow-x: auto;
+  border: 1px solid black;
+  min-height: 200px;
+  background-color: rgb(255, 255, 255);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card {
+  padding: 15px;
+  width: 288px;
+}
+
+.card-text {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card-img-top {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form {
+  padding: 10px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.fb {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.fb-v {
+  flex-direction: column;
+}
